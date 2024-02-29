@@ -18,5 +18,33 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #f8f9fa; /* Light gray background color */
 }
+/* Group_7_Mission_8.styles.css */
+
+.navbar {
+    background-color: #007bff; /* Navbar primary color */
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important; /* Navbar text color */
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #fff !important; /* Navbar text color on hover */
+}
+
+.container {
+    background-color: #fff; /* Container background color */
+    border-radius: 5px; /* Container border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Container box shadow */
+}
+
+.footer {
+    padding: 1rem 0;
+    background-color: #007bff; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center;
+}
+
