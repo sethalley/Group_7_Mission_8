@@ -5,6 +5,8 @@
         List<ToDo> ToDos { get; }
 
         public void AddToDo(ToDo toDo);
+        public void EditToDo(ToDo updateInfo);
+        public void DeleteToDo(ToDo deleteInfo);
 
         List<Category> Categories { get; }
         public void AddCategory(Category category);

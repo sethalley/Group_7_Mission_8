@@ -33,12 +33,12 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Categories">Category</label>
-            <select asp-for="Categories">
+            <label asp-for="CategoryId">Category</label>
+            <select asp-for="CategoryId">
                 <option value="" selected disabled>Select Category</option>
-                @foreach (Categories c in ViewBag.Categories)
+                @foreach (Category c in ViewBag.Category)
                 {
-                    <option value="@c.CategoryId">@c.CategoryName</option>
+                    <option value="@c.CategoryId">@c.Categories</option>
                 }
             </select>
         </div>

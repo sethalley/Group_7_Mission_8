@@ -24,6 +24,22 @@ namespace Group_7_Mission_8.Models
             _context.SaveChanges();
         }
 
+        public void EditToDo(ToDo updateInfo)
+        {
+            _context.Update(updateInfo);
+            _context.SaveChanges();
+
+        }
+
+        public void DeleteToDo(ToDo deleteInfo)
+        {
+            _context.Remove(deleteInfo);
+            _context.SaveChanges();
+
+        }
+
+
+
         public List<Category> Categories => _context.Categories.ToList();
         public void AddCategories(Category category)
         {
@@ -31,7 +47,10 @@ namespace Group_7_Mission_8.Models
             _context.SaveChanges();
         }
 
-
+        public void AddCategory(Category category)
+        {
+            throw new NotImplementedException();
+        }
     }
     
     

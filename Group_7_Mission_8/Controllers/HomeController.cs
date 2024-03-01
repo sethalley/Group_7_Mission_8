@@ -1,5 +1,6 @@
 using Group_7_Mission_8.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Group_7_Mission_8.Controllers
@@ -7,11 +8,12 @@ namespace Group_7_Mission_8.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IToDoRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger, ToDosContext context)
+        public HomeController(ILogger<HomeController> logger, IToDoRepository temp)
         {
             _logger = logger;
-            _context = context;
+            _repo = temp;
         }
 
         public IActionResult Privacy()
@@ -26,7 +28,7 @@ namespace Group_7_Mission_8.Controllers
         //NOTES: There must be a CONTEXT FILE and there must be a SUBMISSION class that records the data
         public IActionResult TaskForm()
         {
-            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Categories = _repo.Categories.ToList();
 
             return View("TaskForm", new ToDo());
         }
@@ -37,8 +39,7 @@ namespace Group_7_Mission_8.Controllers
             if (ModelState.IsValid)
             {
                 // Save submission to the database or perform other operations
-                _context.ToDo.Add(response);
-                _context.SaveChanges();
+                _repo.AddToDo(response);
 
                 // Redirect to a confirmation page
                 return RedirectToAction("List");
@@ -49,13 +50,6 @@ namespace Group_7_Mission_8.Controllers
             }
 
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
         
 
         // This is the code for the controllers fro the index page that will ultimately become the quadrant page
@@ -64,7 +58,7 @@ namespace Group_7_Mission_8.Controllers
         //that will be created by Tristan
         public IActionResult Index()
         {
-            var submissions = _context.ToDos.ToList();
+            var submissions = _repo.ToDos.ToList();
             return View(submissions);
         }
 
@@ -72,10 +66,10 @@ namespace Group_7_Mission_8.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.ToDos.FirstOrDefault(ToDo => ToDo.TaskId == id);
+            var recordToEdit = _repo.ToDos.FirstOrDefault(ToDo => ToDo.TaskId == id);
             if (recordToEdit == null)
                 return NotFound();
-            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Categories = _repo.Categories.ToList();
             return View("TaskForm", recordToEdit);
         }
 
@@ -86,23 +80,24 @@ namespace Group_7_Mission_8.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Update(updatedToDo);
-                _context.SaveChanges();
+                _repo.EditToDo(updatedToDo);
                 return RedirectToAction("Index");
             }
-            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Categories = _repo.Categories.ToList();
             return View("TaskForm", updatedToDo);
         }
 
         //The get method that will allow for the delete function to work, additionally this will reroute to a deletion
         //confirmation page
-        [HttpGet]
-        public IActionResult Delete(int id)
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
         {
-            var recordToDelete = _context.ToDo.FirstOrDefault(ToDo => ToDo.TaskId == id);
-            if (recordToDelete == null)
-                return NotFound();
-            return View(recordToDelete);
+            var recordToDelete = _repo.ToDos.FirstOrDefault(ToDo => ToDo.TaskId == id);
+            if (recordToDelete != null)
+            {
+                _repo.DeleteToDo(recordToDelete);
+            }
+            return RedirectToAction("List");
         }
     }
 }
