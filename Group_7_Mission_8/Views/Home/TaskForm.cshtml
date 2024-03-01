@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ToDo
+<div class="container">
+    <h2>Task Submission</h2>
+
+    <form action="#" method="post">
+
+        <input type="hidden" asp-for="TaskId"/>
+
+        <div class="form-group">
+            <label asp-for="Task">Task <span style="color: red;">*</span></label>
+            <input asp-for="Task" type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DueDate">Due Date</label>
+            <input asp-for="DueDate" type="date">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Quadrant">Quadrant <span style="color: red;">*</span></label>
+            <select asp-for="Quadrant" required>
+                <option value="" selected disabled>Select Quadrant</option>
+                <option value="Quadrant1">Urgent/Important</option>
+                <option value="Quadrant2">Not Urgent/Important</option>
+                <option value="Quadrant3">Urgent/Not Important</option>
+                <option value="Quadrant4">Not Urgent/Not Important</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Categories">Category</label>
+            <select asp-for="Categories">
+                <option value="" selected disabled>Select Category</option>
+                @foreach (Categories c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Completed">Completed</label>
+            <select asp-for="Completed">
+                <option value="" selected disabled>--Completed--</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+    </style>
