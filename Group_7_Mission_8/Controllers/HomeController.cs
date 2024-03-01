@@ -21,7 +21,6 @@ namespace Group_7_Mission_8.Controllers
             return View();
         }
 
-
         //Here is the controller code for the task form page. First the page should be displayed
         //there must be a submission class/model to store the data gathered from the form
         //then using a 'post' method the data will be added and saved to the database

@@ -14,19 +14,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var ToDo in Model.Where(t => t.Quadrant == "Quadrant1"))
+                    @foreach (var ToDo in Model)
                     {
-                        <tr>
-                            <td>@ToDo.Task</td>
-                            <td>@ToDo.DueDate</td>
-                            <td>@ToDo.Categories.CategoryName</td>
-                            <td>@ToDo.Completed</td>
-                            <td>
-                                <!-- Add update and delete buttons -->
-                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
-                            </td>
-                        </tr>
+                        @if (ToDo.Quadrant == "Quadrant1")
+                        {
+                            <tr>
+                                <td>@ToDo.Task</td>
+                                <td>@ToDo.DueDate</td>
+                                <td>@ToDo.Categories.CategoryName</td>
+                                <td>@ToDo.Completed</td>
+                                <td>
+                                    <!-- Add update and delete buttons -->
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -42,19 +45,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var ToDo in Model.Where(t => t.Quadrant == "Quadrant2"))
+                    @foreach (var ToDo in Model)
                     {
-                        <tr>
-                            <td>@ToDo.Task</td>
-                            <td>@ToDo.DueDate</td>
-                            <td>@ToDo.Categories.CategoryName</td>
-                            <td>@ToDo.Completed</td>
-                            <td>
-                                <!-- Add update and delete buttons -->
-                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
-                            </td>
-                        </tr>
+                        @if (ToDo.Quadrant == "Quadrant2")
+                        {
+                            <tr>
+                                <td>@ToDo.Task</td>
+                                <td>@ToDo.DueDate</td>
+                                <td>@ToDo.Categories.CategoryName</td>
+                                <td>@ToDo.Completed</td>
+                                <td>
+                                    <!-- Add update and delete buttons -->
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -72,19 +78,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var ToDo in Model.Where(t => t.Quadrant == "Quadrant3"))
+                    @foreach (var ToDo in Model)
                     {
-                        <tr>
-                            <td>@ToDo.Task</td>
-                            <td>@ToDo.DueDate</td>
-                            <td>@ToDo.Categories.CategoryName</td>
-                            <td>@ToDo.Completed</td>
-                            <td>
-                                <!-- Add update and delete buttons -->
-                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
-                            </td>
-                        </tr>
+                        @if (ToDo.Quadrant == "Quadrant3")
+                        {
+                            <tr>
+                                <td>@ToDo.Task</td>
+                                <td>@ToDo.DueDate</td>
+                                <td>@ToDo.Categories.CategoryName</td>
+                                <td>@ToDo.Completed</td>
+                                <td>
+                                    <!-- Add update and delete buttons -->
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -100,19 +109,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var ToDo in Model.Where(t => t.Quadrant == "Quadrant4"))
+                    @foreach (var ToDo in Model)
                     {
-                        <tr>
-                            <td>@ToDo.Task</td>
-                            <td>@ToDo.DueDate</td>
-                            <td>@ToDo.Categories.CategoryName</td>
-                            <td>@ToDo.Completed</td>
-                            <td>
-                                <!-- Add update and delete buttons -->
-                                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
-                            </td>
-                        </tr>
+                        @if (ToDo.Quadrant == "Quadrant4")
+                        {
+                            <tr>
+                                <td>@ToDo.Task</td>
+                                <td>@ToDo.DueDate</td>
+                                <td>@ToDo.Categories.CategoryName</td>
+                                <td>@ToDo.Completed</td>
+                                <td>
+                                    <!-- Add update and delete buttons -->
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@ToDo.TaskId">Edit</a> <!-- Edit button -->
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@ToDo.TaskId">Delete</a> <!-- Delete button -->
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
