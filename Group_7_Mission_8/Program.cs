@@ -1,7 +1,21 @@
+using Group_7_Mission_8.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ToDosContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings: ToDosConnecton"]);
+}
+
+);
+
+builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
+
 
 var app = builder.Build();
 
