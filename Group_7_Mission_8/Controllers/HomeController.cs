@@ -25,6 +25,7 @@ namespace Group_7_Mission_8.Controllers
         //there must be a submission class/model to store the data gathered from the form
         //then using a 'post' method the data will be added and saved to the database
         //NOTES: There must be a CONTEXT FILE and there must be a SUBMISSION class that records the data
+        [HttpGet]
         public IActionResult TaskForm()
         {
             ViewBag.Categories = _repo.Categories.ToList();
@@ -41,10 +42,11 @@ namespace Group_7_Mission_8.Controllers
                 _repo.AddToDo(response);
 
                 // Redirect to a confirmation page
-                return RedirectToAction("List");
+                return RedirectToAction("Index");
             }
             else
             {
+                ViewBag.Categories = _repo.Categories.ToList();
                 return View(response);
             }
 
@@ -89,14 +91,14 @@ namespace Group_7_Mission_8.Controllers
         //The get method that will allow for the delete function to work, additionally this will reroute to a deletion
         //confirmation page
         [HttpPost]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult Delete(int id)
         {
             var recordToDelete = _repo.ToDos.FirstOrDefault(ToDo => ToDo.TaskId == id);
             if (recordToDelete != null)
             {
                 _repo.DeleteToDo(recordToDelete);
             }
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
         }
     }
 }
