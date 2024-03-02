@@ -15,5 +15,7 @@ public partial class ToDo
 
     public int? CategoryId { get; set; }
 
+    //public string? Category CategoryName {get; set; } maybe add something like this?
+
     public int? Completed { get; set; }
 }

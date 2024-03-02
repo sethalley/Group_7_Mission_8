@@ -4,26 +4,26 @@
 @{
 }
 @model ToDo
-<div class="container">
-    <h2>Task Submission</h2>
+<div class="container" style="max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="margin-bottom: 20px;">Task Submission</h2>
 
     <form action="#" method="post">
 
-        <input type="hidden" asp-for="TaskId"/>
+        <input type="hidden" asp-for="TaskId" />
 
-        <div class="form-group">
-            <label asp-for="Task">Task <span style="color: red;">*</span></label>
-            <input asp-for="Task" type="text" required>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label asp-for="Task" style="font-weight: bold; display: block; margin-bottom: 5px;">Task <span style="color: red;">*</span></label>
+            <input asp-for="Task" type="text" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
         </div>
 
-        <div class="form-group">
-            <label asp-for="DueDate">Due Date</label>
-            <input asp-for="DueDate" type="date">
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label asp-for="DueDate" style="font-weight: bold; display: block; margin-bottom: 5px;">Due Date</label>
+            <input asp-for="DueDate" type="date" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
         </div>
 
-        <div class="form-group">
-            <label asp-for="Quadrant">Quadrant <span style="color: red;">*</span></label>
-            <select asp-for="Quadrant" required>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label asp-for="Quadrant" style="font-weight: bold; display: block; margin-bottom: 5px;">Quadrant <span style="color: red;">*</span></label>
+            <select asp-for="Quadrant" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
                 <option value="" selected disabled>Select Quadrant</option>
                 <option value="Quadrant1">Urgent/Important</option>
                 <option value="Quadrant2">Not Urgent/Important</option>
@@ -32,63 +32,26 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label asp-for="CategoryId">Category</label>
-            <select asp-for="CategoryId">
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label asp-for="CategoryId" style="font-weight: bold; display: block; margin-bottom: 5px;">Category</label>
+            <select asp-for="CategoryId" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
                 <option value="" selected disabled>Select Category</option>
-                @foreach (Category c in ViewBag.Category)
+                @foreach (Category c in ViewBag.Categories)
                 {
                     <option value="@c.CategoryId">@c.Categories</option>
                 }
             </select>
         </div>
 
-        <div class="form-group">
-            <label asp-for="Completed">Completed</label>
-            <select asp-for="Completed">
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label asp-for="Completed" style="font-weight: bold; display: block; margin-bottom: 5px;">Completed</label>
+            <select asp-for="Completed" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
                 <option value="" selected disabled>--Completed--</option>
                 <option value="true">True</option>
                 <option value="false">False</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; border: none; border-radius: 5px; background-color: #007bff; color: #fff;">Submit</button>
     </form>
 </div>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-    </style>
