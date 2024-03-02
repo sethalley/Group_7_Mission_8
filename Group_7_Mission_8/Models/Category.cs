@@ -8,5 +8,5 @@ public partial class Category
 {
     public int CategoryId { get; set; }
 
-    public string Categories { get; set; } = null!;
+    public string Categories { get; set; }
 }
