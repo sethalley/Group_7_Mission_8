@@ -14,9 +14,8 @@ public partial class ToDo
 
     public string Quadrant { get; set; }
 
-    public int? CategoryId { get; set; }
+    public Category? Categories { get; set; }
 
     //public string? Category CategoryName {get; set; } maybe add something like this?
-
     public bool? Completed { get; set; }
 }
