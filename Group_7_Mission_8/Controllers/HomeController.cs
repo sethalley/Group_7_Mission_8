@@ -16,10 +16,6 @@ namespace Group_7_Mission_8.Controllers
             _repo = temp;
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         //Here is the controller code for the task form page. First the page should be displayed
         //there must be a submission class/model to store the data gathered from the form
@@ -88,9 +84,8 @@ namespace Group_7_Mission_8.Controllers
             return View("TaskForm", updatedToDo);
         }
 
-        //The get method that will allow for the delete function to work, additionally this will reroute to a deletion
-        //confirmation page
-        [HttpPost]
+        //The post method that will allow for the delete function to work
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             var recordToDelete = _repo.ToDos.FirstOrDefault(ToDo => ToDo.TaskId == id);
