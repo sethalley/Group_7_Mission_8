@@ -16,12 +16,12 @@
                 <tbody>
                     @foreach (var ToDo in Model)
                     {
-                        @if (ToDo.Quadrant == "Quadrant1")
+                        @if (ToDo.Quadrant == "Quadrant1" && !ToDo.Completed)
                         {
                             <tr>
                                 <td>@ToDo.Task</td>
                                 <td>@ToDo.DueDate</td>
-                                <td>@ToDo.CategoryId</td> <!--I edited this cause might need to change use to be categories.CategoryName-->
+                                <td>@ToDo.CategoryId</td>
                                 <td>@ToDo.Completed</td>
                                 <td>
                                     <!-- Add update and delete buttons -->
@@ -47,7 +47,7 @@
                 <tbody>
                     @foreach (var ToDo in Model)
                     {
-                        @if (ToDo.Quadrant == "Quadrant2")
+                        @if (ToDo.Quadrant == "Quadrant2" && !ToDo.Completed)
                         {
                             <tr>
                                 <td>@ToDo.Task</td>
@@ -80,7 +80,7 @@
                 <tbody>
                     @foreach (var ToDo in Model)
                     {
-                        @if (ToDo.Quadrant == "Quadrant3")
+                        @if (ToDo.Quadrant == "Quadrant3" && !ToDo.Completed)
                         {
                             <tr>
                                 <td>@ToDo.Task</td>
@@ -111,7 +111,7 @@
                 <tbody>
                     @foreach (var ToDo in Model)
                     {
-                        @if (ToDo.Quadrant == "Quadrant4")
+                        @if (ToDo.Quadrant == "Quadrant4" && !ToDo.Completed)
                         {
                             <tr>
                                 <td>@ToDo.Task</td>
